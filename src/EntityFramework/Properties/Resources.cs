@@ -3,7 +3,7 @@
 namespace System.Data.Entity.Resources
 {
     using System.CodeDom.Compiler;
-    using System.Data.Entity.Core;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Globalization;
     using System.Resources;

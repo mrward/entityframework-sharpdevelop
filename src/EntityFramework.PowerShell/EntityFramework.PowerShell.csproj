@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System.Data.Entity</RootNamespace>
     <AssemblyName>EntityFramework.PowerShell</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
     <SignAssembly>true</SignAssembly>
@@ -113,6 +113,9 @@
     <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.OLE.Interop" />
     <Reference Include="Microsoft.VisualStudio.Shell">
       <Private>false</Private>
@@ -122,6 +125,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -196,16 +200,9 @@
     <EmbeddedResource Include="Templates\Configuration.vb" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityFramework\EntityFramework.csproj">
-      <Project>{E06D1C12-EFE8-4413-A15C-AE01FC158F2F}</Project>
-      <Name>EntityFramework</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EntityFramework.PowerShell.Utility\EntityFramework.PowerShell.Utility.csproj">
       <Project>{73636C32-5633-4D12-AA7B-88DCC26ACDB7}</Project>
       <Name>EntityFramework.PowerShell.Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Migrate\Migrate.csproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
