@@ -1,23 +1,29 @@
 param($installPath, $toolsPath, $package, $project)
 
-function Invoke-SqlCompactConnectionFactoryConfigurator($assemblyPath, $project)
+$invoker = @"
+public class SqlCompactConnectionFactoryConfiguratorInvoker
 {
-    $appDomain = [AppDomain]::CreateDomain(
-        'EntityFramework.PowerShell',
-        $null,
-        (New-Object System.AppDomainSetup -Property @{ ShadowCopyFiles = 'true' }))
+    public static void Invoke(string assemblyPath, object project)
+    {
+        var appDomain = System.AppDomain.CreateDomain(
+            "EntityFramework.PowerShell",
+            null, 
+            new System.AppDomainSetup { ShadowCopyFiles = "true" });
 
-    $appDomain.CreateInstanceFrom(
-        $assemblyPath,
-        'System.Data.Entity.ConnectionFactoryConfig.SqlCompactConnectionFactoryConfigurator',
-        $false,
-        0,
-        $null,
-        $project,
-        $null,
-        $null) | Out-Null
+        appDomain.CreateInstanceFrom(
+            assemblyPath, 
+            "System.Data.Entity.ConnectionFactoryConfig.SqlCompactConnectionFactoryConfigurator",
+            false,
+            0,
+            null,
+            new object[] { project },
+            null,
+            null);
 
-    [AppDomain]::Unload($appDomain)
+        System.AppDomain.Unload(appDomain);
+    }
 }
+"@
 
-Invoke-SqlCompactConnectionFactoryConfigurator (Join-Path $toolsPath EntityFramework.PowerShell.dll) $project
+Add-Type -TypeDefinition $invoker
+[SqlCompactConnectionFactoryConfiguratorInvoker]::Invoke((Join-Path $toolsPath "EntityFramework.PowerShell.dll"), $project)
