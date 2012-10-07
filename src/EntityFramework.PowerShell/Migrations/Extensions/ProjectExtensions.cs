@@ -10,7 +10,6 @@ namespace System.Data.Entity.Migrations.Extensions
     using System.Linq;
     using System.Runtime.InteropServices;
     using EnvDTE;
-    using Microsoft.VisualStudio.OLE.Interop;
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Interop;
 
@@ -101,7 +100,7 @@ namespace System.Data.Entity.Migrations.Extensions
 
             Contract.Assert(projectItem.FileCount == 1);
 
-            return projectItem.FileNames[0];
+            return projectItem.FileNames(0);
         }
 
         public static bool IsWebProject(this Project project)
@@ -281,7 +280,7 @@ namespace System.Data.Entity.Migrations.Extensions
 
             IVsHierarchy hierarchy;
 
-            var serviceProvider = new ServiceProvider((IServiceProvider)project.DTE);
+            var serviceProvider = (IServiceProvider)project.DTE;
             var solution = (IVsSolution)serviceProvider.GetService(typeof(IVsSolution));
             var hr = solution.GetProjectOfUniqueName(project.UniqueName, out hierarchy);
 
