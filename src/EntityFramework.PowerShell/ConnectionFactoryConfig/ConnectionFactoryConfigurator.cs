@@ -29,9 +29,12 @@ namespace System.Data.Entity.ConnectionFactoryConfig
         /// </remarks>
         /// <param name="project"> The Visual Studio project to configure. </param>
         [CLSCompliant(false)]
-        public ConnectionFactoryConfigurator(Project project)
+        public ConnectionFactoryConfigurator(object projectObject)
         {
-            Contract.Requires(project != null);
+            Contract.Requires(projectObject != null);
+            Contract.Requires(projectObject is Project);
+
+            var project = (Project)projectObject;
 
             using (
                 var detector = new SqlServerDetector(
