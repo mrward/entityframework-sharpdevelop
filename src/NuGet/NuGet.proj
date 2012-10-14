@@ -9,10 +9,12 @@
 
     <Target Name="Build">
         <Copy DestinationFolder="EntityFramework\tools" SourceFiles="..\EntityFramework.PowerShell\bin\$(Configuration)\EntityFramework.PowerShell.dll" />
+        <Copy DestinationFolder="EntityFramework\tools" SourceFiles="..\EntityFramework.PowerShell\bin\$(Configuration)\SharpDevelop.EnvDTE.dll" />
         <Copy DestinationFolder="EntityFramework\tools" SourceFiles="..\EntityFramework.PowerShell.Utility\bin\$(Configuration)\EntityFramework.PowerShell.Utility.dll" />
         <Copy DestinationFolder="EntityFramework.SqlServerCompact\tools" SourceFiles="..\EntityFramework.PowerShell\bin\$(Configuration)\EntityFramework.PowerShell.dll" />
+        <Copy DestinationFolder="EntityFramework.SqlServerCompact\tools" SourceFiles="..\EntityFramework.PowerShell\bin\$(Configuration)\SharpDevelop.EnvDTE.dll" />
 
-        <MakeDir Directories="$(OutputPath)" />
+      <MakeDir Directories="$(OutputPath)" />
 
         <Exec Command="&quot;$(NuGetExePath)&quot; pack EntityFramework\EntityFramework.nuspec -OutputDirectory &quot;$(OutputPath).&quot; -NoPackageAnalysis" />
         <Exec Command="&quot;$(NuGetExePath)&quot; pack EntityFramework.SqlServerCompact\EntityFramework.SqlServerCompact.nuspec -OutputDirectory &quot;$(OutputPath).&quot; -NoPackageAnalysis" />
