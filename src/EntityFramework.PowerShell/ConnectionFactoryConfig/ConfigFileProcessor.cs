@@ -28,7 +28,7 @@ namespace System.Data.Entity.ConnectionFactoryConfig
         {
             Contract.Requires(configItem != null);
 
-            var fileName = configItem.FileNames(0);
+            var fileName = configItem.get_FileNames(0);
             var config = XDocument.Load(fileName);
 
             var fileModified = false;

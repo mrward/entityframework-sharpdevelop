@@ -100,7 +100,7 @@ namespace System.Data.Entity.Migrations.Extensions
 
             Contract.Assert(projectItem.FileCount == 1);
 
-            return projectItem.FileNames(0);
+            return projectItem.get_FileNames(0);
         }
 
         public static bool IsWebProject(this Project project)
