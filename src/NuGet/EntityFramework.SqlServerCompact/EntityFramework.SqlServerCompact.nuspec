@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
-    <id>EntityFramework.SqlServerCompact</id>
+    <id>EntityFramework.SqlServerCompact.SharpDevelop</id>
     <version>$NuGetPackageVersion$</version>
-    <title>EntityFramework.SqlServerCompact</title>
+    <title>EntityFramework.SqlServerCompact.SharpDevelop</title>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
-    <tags>Microsoft EF SQL Compact CE</tags>
+    <tags>Microsoft EF SQL Compact CE SharpDevelop</tags>
     <projectUrl>http://go.microsoft.com/fwlink/?LinkID=320540</projectUrl>
     <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=320539</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -15,7 +15,7 @@
     <language>en-US</language>
     <dependencies>
       <dependency id="Microsoft.SqlServer.Compact" version="4.0" />
-      <dependency id="EntityFramework" version="$EFPackageVersion$" />
+      <dependency id="EntityFramework.SharpDevelop" version="$EFPackageVersion$" />
     </dependencies>
   </metadata>
 </package>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
-    <id>EntityFramework</id>
+    <id>EntityFramework.SharpDevelop</id>
     <version>$NuGetPackageVersion$</version>
-    <title>EntityFramework</title>
+    <title>EntityFramework.SharpDevelop</title>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
-    <tags>Microsoft EF Database Data O/RM ADO.NET</tags>
+    <tags>Microsoft EF Database Data O/RM ADO.NET SharpDevelop</tags>
     <projectUrl>http://go.microsoft.com/fwlink/?LinkID=320540</projectUrl>
     <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=320539</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
