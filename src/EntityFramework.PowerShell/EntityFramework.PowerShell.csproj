@@ -13,11 +13,12 @@
     <AssemblyName>EntityFramework.PowerShell</AssemblyName>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     <FileAlignment>512</FileAlignment>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>False</SignAssembly>
     <AssemblyOriginatorKeyFile>..\EcmaPublicKey.snk</AssemblyOriginatorKeyFile>
-    <DelaySign>true</DelaySign>
+    <DelaySign>False</DelaySign>
     <TargetFrameworkProfile />
     <BuildPackages>true</BuildPackages>
+    <NoWin32Manifest>False</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
