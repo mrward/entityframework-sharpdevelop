@@ -29,8 +29,12 @@
       <Source>$(OutputPath)</Source>
       <Destination>tools</Destination>
     </NuGetContent>
-	<NuGetContent Include="migrate.exe">
+	  <NuGetContent Include="migrate.exe">
       <Source>tools</Source>
+      <Destination>tools</Destination>
+    </NuGetContent>
+    <NuGetContent Include="SharpDevelop.EnvDTE.dll">
+      <Source>$(RepositoryRoot)\lib</Source>
       <Destination>tools</Destination>
     </NuGetContent>
     <NuGetContent Include="tools\*">

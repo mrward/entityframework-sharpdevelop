@@ -69,11 +69,10 @@
       <HintPath>..\..\lib\EntityFramework.SqlServerCompact.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>$(MSBuildProgramFiles32)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpDevelop.EnvDTE">
+      <HintPath>..\..\lib\SharpDevelop.EnvDTE.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
   </ItemGroup>

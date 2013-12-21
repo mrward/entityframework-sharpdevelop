@@ -94,7 +94,7 @@ namespace System.Data.Entity.Migrations.Extensions
 
             Debug.Assert(projectItem.FileCount == 1);
 
-            return projectItem.FileNames[0];
+            return projectItem.get_FileNames(0);
         }
 
         public static bool IsWebProject(this Project project)
@@ -287,9 +287,7 @@ namespace System.Data.Entity.Migrations.Extensions
 
             Debug.Assert(serviceProviderType != null);
 
-            var serviceProvider = (IServiceProvider)Activator.CreateInstance(
-                serviceProviderType,
-                (Microsoft.VisualStudio.OLE.Interop.IServiceProvider)project.DTE);
+            var serviceProvider = (IServiceProvider)project.DTE;
 
             var solution = (IVsSolution)serviceProvider.GetService(typeof(IVsSolution));
             var hr = solution.GetProjectOfUniqueName(project.UniqueName, out hierarchy);

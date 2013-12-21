@@ -13,6 +13,10 @@
       <Source>lib\net45</Source>
       <Destination>lib\net45</Destination>
     </NuGetContent>
+    <NuGetContent Include="SharpDevelop.EnvDTE.dll">
+      <Source>$(RepositoryRoot)\lib</Source>
+      <Destination>tools</Destination>
+    </NuGetContent>
     <NuGetContent Include="tools\*">
       <Destination>tools</Destination>
     </NuGetContent>

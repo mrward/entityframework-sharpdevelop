@@ -5,7 +5,6 @@ namespace System.Data.Entity.ConnectionFactoryConfig
     using System.Data.Entity.Utilities;
     using System.Linq;
     using EnvDTE;
-    using VSLangProj;
 
     internal class ReferenceRemover
     {
@@ -43,7 +42,7 @@ namespace System.Data.Entity.ConnectionFactoryConfig
             DebugCheck.NotEmpty(identity);
             DebugCheck.NotEmpty(publicKeyToken);
 
-            var vsProject = _project.Object as VSProject;
+            var vsProject = _project.Object as ProjectObject;
             return vsProject == null
                        ? null
                        : vsProject.References
