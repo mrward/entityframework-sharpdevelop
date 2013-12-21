@@ -6,22 +6,13 @@
   </PropertyGroup>  
   <ItemGroup>
     <NuGetContent Include="EntityFramework.SqlServerCompact.dll;EntityFramework.SqlServerCompact.xml">
-      <Source>$(OutputPath40)</Source>
+      <Source>lib\net40</Source>
       <Destination>lib\net40</Destination>
     </NuGetContent>
     <NuGetContent Include="EntityFramework.SqlServerCompact.dll;EntityFramework.SqlServerCompact.xml">
-      <Source>$(OutputPath45)</Source>
+      <Source>lib\net45</Source>
       <Destination>lib\net45</Destination>
     </NuGetContent>
-    <NuGetContent Include="EntityFramework.SqlServerCompact.pdb" Condition="'$(NuGetPackSymbols)' == 'true'">
-      <Source>$(OutputPath40)</Source>
-      <Destination>lib\net40</Destination>
-    </NuGetContent>
-    <NuGetContent Include="EntityFramework.SqlServerCompact.pdb" Condition="'$(NuGetPackSymbols)' == 'true'">
-      <Source>$(OutputPath45)</Source>
-      <Destination>lib\net45</Destination>
-    </NuGetContent>
-    <NuGetContentProject Include="$(RepositoryRoot)\src\EntityFramework.SqlServerCompact\EntityFramework.SqlServerCompact.csproj" Condition="'$(NuGetPackSymbols)' == 'true'" />
     <NuGetContent Include="tools\*">
       <Destination>tools</Destination>
     </NuGetContent>

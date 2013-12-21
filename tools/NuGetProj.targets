@@ -34,7 +34,7 @@ Relevant parameters:
   <PropertyGroup>
     <NuGetPackageId Condition="'$(NuGetPackageId)' == ''">$(MSBuildProjectName)</NuGetPackageId>
     <NuGetPackSymbols Condition="'$(NuGetPackOptions.ToLower().Contains(symbols))'">true</NuGetPackSymbols>
-    <NuGetPackSymbols Condition="'$(NuGetPackSymbols)' == ''">true</NuGetPackSymbols>
+    <NuGetPackSymbols Condition="'$(NuGetPackSymbols)' == ''">false</NuGetPackSymbols>
     <NuSpecFile Condition="'$(NuSpecFile)' == ''">$(MSBuildProjectDirectory)\$(NuGetPackageId).nuspec</NuSpecFile>
     <NuSpecFileName>$([System.IO.Path]::GetFileName('$(NuSpecFile)'))</NuSpecFileName>
     <NuSpecCreateOnMissing Condition="'$(NuSpecCreateOnMissing)' == ''">true</NuSpecCreateOnMissing>

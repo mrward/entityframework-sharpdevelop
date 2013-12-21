@@ -5,40 +5,22 @@
     <NuSpecFile>EntityFramework.nuspec</NuSpecFile>
   </PropertyGroup>
   <ItemGroup>
-    <NuGetContent Include="EntityFramework.dll;EntityFramework.pdb;EntityFramework.xml">
-      <Source>$(OutputPath40)</Source>
+    <NuGetContent Include="EntityFramework.dll;EntityFramework.xml">
+      <Source>lib\net40</Source>
       <Destination>lib\net40</Destination>
     </NuGetContent>
-    <NuGetContent Include="EntityFramework.dll;EntityFramework.pdb;EntityFramework.xml">
-      <Source>$(OutputPath45)</Source>
+    <NuGetContent Include="EntityFramework.dll;EntityFramework.xml">
+      <Source>lib\net45</Source>
       <Destination>lib\net45</Destination>
     </NuGetContent>
     <NuGetContent Include="EntityFramework.SqlServer.dll;EntityFramework.SqlServer.xml">
-      <Source>$(OutputPath40)</Source>
+      <Source>lib\net40</Source>
       <Destination>lib\net40</Destination>
     </NuGetContent>
-    <NuGetContent Include="EntityFramework.pdb" Condition="'$(NuGetPackSymbols)' == 'true'">
-      <Source>$(OutputPath40)</Source>
-      <Destination>lib\net40</Destination>
-    </NuGetContent>
-    <NuGetContent Include="EntityFramework.pdb" Condition="'$(NuGetPackSymbols)' == 'true'">
-      <Source>$(OutputPath45)</Source>
-      <Destination>lib\net45</Destination>
-    </NuGetContent>
-    <NuGetContentProject Include="$(RepositoryRoot)\src\EntityFramework\EntityFramework.csproj" Condition="'$(NuGetPackSymbols)' == 'true'" />
     <NuGetContent Include="EntityFramework.SqlServer.dll;EntityFramework.SqlServer.xml">
-      <Source>$(OutputPath45)</Source>
+      <Source>lib\net45</Source>
       <Destination>lib\net45</Destination>
     </NuGetContent>
-    <NuGetContent Include="EntityFramework.SqlServer.pdb" Condition="'$(NuGetPackSymbols)' == 'true'">
-      <Source>$(OutputPath40)</Source>
-      <Destination>lib\net40</Destination>
-    </NuGetContent>
-    <NuGetContent Include="EntityFramework.SqlServer.pdb" Condition="'$(NuGetPackSymbols)' == 'true'">
-      <Source>$(OutputPath45)</Source>
-      <Destination>lib\net45</Destination>
-    </NuGetContent>
-    <NuGetContentProject Include="$(RepositoryRoot)\src\EntityFramework.SqlServer\EntityFramework.SqlServer.csproj" Condition="'$(NuGetPackSymbols)' == 'true'" />
     <NuGetContent Include="EntityFramework.PowerShell.dll">
       <Source>$(OutputPath)</Source>
       <Destination>tools</Destination>
@@ -48,7 +30,7 @@
       <Destination>tools</Destination>
     </NuGetContent>
 	<NuGetContent Include="migrate.exe">
-      <Source>$(OutputPath)</Source>
+      <Source>tools</Source>
       <Destination>tools</Destination>
     </NuGetContent>
     <NuGetContent Include="tools\*">

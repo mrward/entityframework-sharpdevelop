@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Clean;Test;Package" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Clean;Package" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Configuration Condition="'$(Configuration)' == ''">ReleaseNet40</Configuration>
     <Platform>AnyCPU</Platform>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">$(MSBuildThisFileDirectory)</SolutionDir>
     <BuildProperties>Platform=$(Platform);SolutionDir=$(SolutionDir)</BuildProperties>
@@ -10,33 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectToBuild Include="src\EntityFramework\EntityFramework.csproj" />
     <ProjectToBuild Include="src\EntityFramework.PowerShell\EntityFramework.PowerShell.csproj" />
     <ProjectToBuild Include="src\EntityFramework.PowerShell.Utility\EntityFramework.PowerShell.Utility.csproj" />
-    <ProjectToBuild Include="src\EntityFramework.SqlServer\EntityFramework.SqlServer.csproj" />
-    <ProjectToBuild Include="src\EntityFramework.SqlServerCompact\EntityFramework.SqlServerCompact.csproj">
-      <RestorePackages>true</RestorePackages>
-    </ProjectToBuild>
-    <ProjectToBuild Include="src\Migrate\Migrate.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <NonCoreProjectToBuild Include="test\EntityFramework\FunctionalTests\FunctionalTests.csproj">
-      <RestorePackages>true</RestorePackages>
-    </NonCoreProjectToBuild>
-    <NonCoreProjectToBuild Include="test\EntityFramework\FunctionalTests.Transitional\FunctionalTests.Transitional.csproj">
-      <RestorePackages>true</RestorePackages>
-    </NonCoreProjectToBuild>
-    <NonCoreProjectToBuild Include="test\EntityFramework\UnitTests\UnitTests.csproj">
-      <RestorePackages>true</RestorePackages>
-    </NonCoreProjectToBuild>
-    <NonCoreProjectToBuild Include="test\EntityFramework\VBTests\VBTests.vbproj">
-      <RestorePackages>true</RestorePackages>
-    </NonCoreProjectToBuild>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectToBuild Include="@(NonCoreProjectToBuild)" Condition="'$(BuildCoreOnly)' != 'true'" />
   </ItemGroup>
 
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.cmd))\tools\EntityFramework.settings.targets"/>
@@ -48,8 +23,7 @@
              Properties="Configuration=%(BuildConfiguration.Identity);$(BuildProperties)" />
     <MSBuild Targets="Clean"
              Projects="src\NuGet\NuGet.proj"
-             Properties="Configuration=$(Configuration)"
-             Condition="'$(Configuration)' == '$(Configuration45)'" />
+             Properties="Configuration=$(Configuration)" />
   </Target>
 
   <Target Name="RestorePackages">
@@ -104,8 +78,7 @@
              Properties="Configuration=$(Configuration);$(BuildProperties);BuildCoreOnly=true;InternalsInvisible=true;RunCodeAnalysis=false" />
     <MSBuild Targets="Build"
              Projects="src\NuGet\NuGet.proj"
-             Properties="Configuration=$(Configuration)"
-             Condition="'$(Configuration)' == '$(Configuration45)'" />
+             Properties="Configuration=$(Configuration)" />
   </Target>
 
   <Target Name="CodeCoverage" DependsOnTargets="RestoreSolutionPackages;Build">
