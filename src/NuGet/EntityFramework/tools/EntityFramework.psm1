@@ -310,8 +310,6 @@ function Enable-Migrations
 
             throw $error.Message
         }
-
-        $(Get-VSComponentModel).GetService([NuGetConsole.IPowerConsoleWindow]).Show()	        
     }
     finally
     {				
@@ -406,7 +404,6 @@ function Add-Migration
 
             throw $error.Message
         }		
-        $(Get-VSComponentModel).GetService([NuGetConsole.IPowerConsoleWindow]).Show()	        
     }
     finally
     {			
@@ -502,7 +499,6 @@ function Update-Database
 
             throw $error.Message
         }		
-        $(Get-VSComponentModel).GetService([NuGetConsole.IPowerConsoleWindow]).Show()	        
     }
     finally
     {		     
