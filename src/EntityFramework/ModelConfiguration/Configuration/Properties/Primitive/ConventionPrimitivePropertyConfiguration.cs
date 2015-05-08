@@ -164,6 +164,21 @@ namespace System.Data.Entity.ModelConfiguration.Configuration
         /// <summary>
         /// Configures the data type of the database column used to store the property.
         /// </summary>
+        /// <param name="columnType"> Name of the SQL database provider specific data type. </param>
+        /// <returns>
+        /// The same <see cref="ConventionPrimitivePropertyConfiguration" /> instance so that multiple calls can be chained.
+        /// </returns>
+        /// <remarks>
+        /// Calling this will have no effect once it has been configured.
+        /// </remarks>
+        public virtual ConventionPrimitivePropertyConfiguration HasColumnType(System.Data.SqlDbType sqlColumnType)
+        {
+            return HasColumnType(sqlColumnType.ToString());
+        }
+
+        /// <summary>
+        /// Configures the data type of the database column used to store the property.
+        /// </summary>
         /// <param name="columnType"> Name of the database provider specific data type. </param>
         /// <returns>
         /// The same <see cref="ConventionPrimitivePropertyConfiguration" /> instance so that multiple calls can be chained.
